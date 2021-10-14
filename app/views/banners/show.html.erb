@@ -1,0 +1,11 @@
+<h1><%= @banner.title %></h1>
+
+<p> <%= @banner.body %> </p>
+
+<ul>
+	<li><%= link_to "Edit", edit_banner_path(@banner)%></li>
+	<li><%= link_to "Destroy", banner_path(@banner),
+								method: :delete,
+								data: {confirm: "Уверены?"} %></li>
+	<li><%= link_to "All", "/banners"%></li>								
+</ul>	

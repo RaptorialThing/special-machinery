@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'banner/index'
   get 'distributor/index'
   get 'advertiser/index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
@@ -6,4 +7,5 @@ Rails.application.routes.draw do
   get "/", to: "rails/welcome#index"
   get "/advertiser", to: "advertiser#index"
   get "/distributor", to: "distributor#index"
+  resources :banners
 end

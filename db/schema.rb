@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_13_165805) do
+ActiveRecord::Schema.define(version: 2021_10_13_213532) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(version: 2021_10_13_165805) do
     t.text "about"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "banners", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.bigint "advertiser_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["advertiser_id"], name: "index_banners_on_advertiser_id"
   end
 
   create_table "distributors", force: :cascade do |t|
@@ -38,4 +47,5 @@ ActiveRecord::Schema.define(version: 2021_10_13_165805) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "banners", "advertisers"
 end
