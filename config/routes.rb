@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'banners#index'
   get 'banner/index'
   get 'distributor/index'
   get 'advertiser/index'
